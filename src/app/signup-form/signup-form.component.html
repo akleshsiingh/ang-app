@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="onSignUp()">
+
+  <div class="form-inline" >
+    <div class="form-group" formGroupName ="account">
+      <input formControlName ="fname" type="text" id="fName" class="form-control" placeholder="First Name">
+      <label for="first Name"> - </label>
+      <input formControlName ="lname" type="text" id="lName" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+
+    <div class="form-group">
+        <label for="username">
+          Username
+        </label>
+        <input
+        formControlName="username"
+        class="form-control" type="text"
+         id="username" placeholder="username">
+         <div *ngIf="username.pending">checking for uniqueness...</div>
+         <div 
+         *ngIf="username.touched && !username.valid && username.errors"
+         class="alert alert-danger">
+         <div *ngIf ="username.errors?.required">username is mandatory</div>
+         <div *ngIf ="username.errors?.minlength">username should min lenght of {{username.errors.minlength.requiredLength}}</div>
+         <div *ngIf ="username.errors?.cannotContainsSpace">user name can not have spaces</div>
+         <div *ngIf ="username.errors?.shouldBeUnique">username is already taken</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+          <label for="password"> Password
+          </label>
+          <input 
+          formControlName="password"
+          class="form-control" type="password" id="password"
+           placeholder="password">
+          <div 
+          *ngIf="form.get('password').touched && !form.get('password').valid"
+          class="alert alert-danger">password is mandatory</div>
+      </div>
+      <div class="form-group">
+        <button
+        
+        class="btn btn-primary form-control" type="submit">SignUp</button>
+      </div>
+        
+</form>

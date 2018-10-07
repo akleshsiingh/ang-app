@@ -1,0 +1,8 @@
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let follower of followers">{{follower.name}}
+    <a 
+    [queryParams]="{sort: 'new'}"
+    [routerLink]="['/followers',follower.id,follower.name]">view</a>
+  </li>
+</ul>

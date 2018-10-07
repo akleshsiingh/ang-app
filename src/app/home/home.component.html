@@ -1,0 +1,14 @@
+
+<app-nav-bar></app-nav-bar>
+<p>
+  home works!
+</p>
+
+<button class="btn btn-priary" (click)="submit()">SUBMIT</button>
+
+<p >HOME</p>
+<p *ngIf="!auth.isloggedIn()" (click)="onLogin()">LOGIN</p>
+
+<p (click)="onLogout()" >LOGOUT</p>
+
+
