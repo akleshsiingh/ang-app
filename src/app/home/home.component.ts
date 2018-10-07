@@ -9,21 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private auth: AuthService,private route: Router) { }
+  constructor(public auth: AuthService, private route: Router) { }
 
   ngOnInit() {
   }
 
   submit() {
-    this.route.navigate(['/followers'],{
-      queryParams:{ page: 2, sort : 'latest'}
-    })
+    this.route.navigate(['/followers'], {
+      queryParams: { page: 2, sort : 'latest'}
+    });
   }
-  onLogin(){
+  onLogin() {
     this.route.navigate(['/login']);
   }
-  onLogout(){
-    this.auth.logout()
+  onLogout() {
+    this.auth.logout();
     this.route.navigate(['/login']);
   }
 }
